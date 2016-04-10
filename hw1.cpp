@@ -1,5 +1,6 @@
-//cs335 Spring 2015 Lab-1
-//This program demonstrates the use of OpenGL and XWindows
+//Author: David A. Hernandez II
+//Program: cs335 Spring 2015 Lab-1
+//Purpose: This program demonstrates the use of OpenGL and XWindows
 //
 //Assignment is to modify this program.
 //You will follow along with your instructor.
@@ -92,10 +93,12 @@ int main(void)
 	game.n=0;
 
 	//declare a box shape
-	game.box[0].width = 100;
-	game.box[0].height = 10;
-	game.box[0].center.x = 120 + 5*65;
-	game.box[0].center.y = 500 - 5*60;
+	for(int i = 0; i > 5; i++) {
+		game.box[i].width = 100;
+		game.box[i].height = 10;
+		game.box[i].center.x = 120 + (5+i)*65;
+		game.box[i].center.y = 500 - (5+i)*60;
+	}
 
 	//start animation
 	while(!done) {
@@ -223,6 +226,9 @@ int check_keys(XEvent *e, Game *game)
 			return 1;
 		}
 		//You may check other keys here.
+		if (key == XK_b) {
+			//Continuously shoot out particles from your cursor	
+		}
 
 	}
 	return 0;
@@ -267,6 +273,7 @@ void render(Game *game)
 	float w, h;
 	glClear(GL_COLOR_BUFFER_BIT);
 	//Draw shapes...
+
 
 	//draw box
 	Shape *s;
